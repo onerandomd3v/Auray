@@ -3,7 +3,7 @@
 Codex reads `AGENTS.md` recursively in the directory hierarchy. Do not use a file named `subagents.md` as if Codex automatically executes it; project-specific custom subagent definitions live under `.codex/agents/*.toml`.
 
 ## Default execution
-One responsible implementation agent per focused branch/worktree. Read approved requirements and active code before changes. Write a concise plan, implement, validate, inspect the diff, create PR against `main`. Do not merge or touch production without explicit authorization.
+One responsible implementation agent per focused branch/worktree. Read approved requirements and active code before changes. Write a concise plan, implement, validate, inspect the diff, create PR against `main`. Use `feat/`, `fix/`, `docs/`, `chore/`, `test/`, `refactor/`, `ci/` or `security/` branch naming, with an actual assigned issue ID only when one exists. Never use `codex/`, `agent/`, or agent/tool-name prefixes, even if the Codex environment offers that as a default. Do not merge or touch production without explicit authorization.
 
 ## Optional specialists
 - `architecture-reviewer`: read-focused review of boundaries and decisions.

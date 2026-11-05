@@ -35,7 +35,7 @@ Both standalone Next.js apps use **Tailwind CSS v4.3.4**, with the official `@ta
 Only sanitized `.env.example` files belong in Git. Product integrations, Drizzle schema/migrations, R2 and deployment configuration belong to later, separately reviewed changes. Never automatically migrate production on API startup.
 
 ## Git workflow
-`main` is the only permanent branch. Create a short-lived branch and PR, keep it updated with `main`, run and report actual checks, resolve review threads and squash-merge. No `dev` branch and no Linear issues until explicitly requested.
+`main` is the only permanent branch. Use descriptive task-oriented prefixes: `feat/`, `fix/`, `chore/`, `docs/`, `test/`, `refactor/`, `ci/`, `security/`. Never create `codex/`, `agent/` or other tool/person-name prefixes; configure the coding agent's branch creation accordingly. Reference an actual assigned Linear issue when available; do not invent issue keys. Keep PRs current with `main`, run and report actual checks, resolve review threads, and squash-merge. There is no `dev` branch.
 
 ## Dependency policy
 Use Node 24 and pnpm 10.20.0. Update and commit the root `pnpm-lock.yaml` whenever a dependency changes. CI uses `pnpm install --frozen-lockfile`. Pin GitHub Actions to full reviewed commit SHAs.
