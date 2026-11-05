@@ -14,7 +14,7 @@ infra/          Deployment manifests and scripts as implemented
 docs/           Engineering standards, decisions and operations
 ```
 
-Typical public hostnames (not final DNS commitments): apex/www for storefront, `admin.<domain>` for admin, `api.<domain>` for API, `media.<domain>` for public product images.
+Example public hostnames for configuration (actual domain/subdomains depend on the client's DNS; this is not an architecture approval gap): apex/www for storefront, `admin.<domain>` for admin, `api.<domain>` for API, `media.<domain>` for public product images.
 
 Cloudflare fronts HTTP application traffic (DNS, proxy, WAF, Full strict TLS). Caddy routes on the client VPS to Docker Compose services. PostgreSQL stays private. R2 stores product images. Bachs handles product checkout. SendByte delivers transactional email. Neither Next.js app accesses PostgreSQL directly.
 
@@ -32,5 +32,5 @@ Delivery fees are quoted and paid **outside** the website. The product checkout 
 ## Portability
 Use narrow internal interfaces for payment, transactional email and object storage. Keep provider-specific capability handling and signed event normalization in adapters. Do not make framework, ORM or database portable for its own sake.
 
-## Current status
-These are approved target boundaries, **not implemented features**. The repository bootstrap does not represent a functional checkout or production deployment.
+## Decision and implementation status
+The architecture above is **approved**. The current repository implements application scaffolding only; catalogue, inventory, authentication, checkout, payments, emails, persistence and deployment are not yet built. Implementation state does not reopen these decisions. See the [README project status](../README.md#project-status) and [product requirements](product-requirements.md).

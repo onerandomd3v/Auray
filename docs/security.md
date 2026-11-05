@@ -1,6 +1,6 @@
 # Security boundaries
 
-- Single-owner admin account with Argon2id passwords, hashed opaque DB session tokens, Secure/HttpOnly/host-only cookie on admin origin, revocation, throttling and secure recovery. Proposed 12-hour inactivity timeout is adjustable in TDD implementation.
+- Single-owner admin account with Argon2id passwords, hashed opaque DB session tokens, Secure/HttpOnly/host-only cookie on admin origin, revocation, throttling and secure recovery. Use the TDD's 12-hour admin inactivity timeout starting configuration; changes require an explicit documented security rationale and approval.
 - Separate browser-to-admin BFF boundary and server-to-Nest API boundary. NestJS independently authorizes every privileged call. Prevent cookie forwarding to unrelated subdomains. Enforce CSRF/origin checks for state-changing requests.
 - Guest order ID is a reference, not authorization. Use a long random read-only access token, store its hash, avoid logging/link referrer leakage; `Cache-Control: no-store` and secure reissue procedures.
 - Never expose order/customer data from public API without authorization. Validate all fields and reject untrusted amounts/stock/client-supplied paid flags.
