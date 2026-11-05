@@ -6,7 +6,7 @@
 | --- | --- |
 | Applications | Independent Next.js storefront and admin; NestJS REST API, pnpm monorepo |
 | Runtime/data | Node.js 24; PostgreSQL + Drizzle; TypeScript |
-| Repository | Only `main` permanent; task-prefixed short-lived PR branches and squash merges; no `codex/` branch prefix; Linear tasks when explicitly authorized |
+| Repository | Only `main` permanent; task-prefixed short-lived PR branches and squash merges; branch-prefix prohibitions and Linear authorization are governed exclusively by root [`AGENTS.md`](../AGENTS.md) |
 | Inventory | Size/colour variant stocks, transactional reservations, safe release/reconciliation |
 | Payments | Bachs checkout, verified signed webhooks, idempotency, audit ledger; product amount separate from shipping |
 | Currencies | NGN is authoritative catalogue price; international options depend on verified Bachs capabilities |
