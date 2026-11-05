@@ -7,3 +7,5 @@ Inherit root `AGENTS.md`. This is a **separate**, independently deployable Next.
 - All privileged writes require CSRF/origin protection, explicit validation, suitable confirmations and audit logging.
 - Do not make `Paid` a manually editable UI status or conflate delivery fee with product payment.
 - Follow approved brand assets; test login/session, destructive changes, product variants, policy publishing and accessibility.
+
+- Use Tailwind CSS v4 utilities for application styling; keep only the necessary global CSS and await approved brand tokens. Do not introduce CSS frameworks or component libraries without approval.

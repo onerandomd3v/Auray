@@ -7,3 +7,5 @@ Inherit root `AGENTS.md`. This is the **public** Next.js application, deployed i
 - Use accessible responsive Next.js patterns; do not invent Auray branding until designer-approved assets exist.
 - Treat private guest token URLs as secrets: no analytics/referrer exposure, `no-store`, careful logging.
 - Add tests for changes and run the app's real lint/typecheck/test/build commands when available; never claim scaffold checks are app tests.
+
+- Use Tailwind CSS v4 utilities for application styling; keep only the necessary global CSS and await approved brand tokens. Do not introduce CSS frameworks or component libraries without approval.

@@ -27,6 +27,10 @@ pnpm build
 
 Use `pnpm --filter @auray/<app> <command>` for a focused check. GitHub Actions runs independent checks with the committed frozen pnpm lockfile. The scaffold tests cover simple route/page output, not commerce or security features.
 
+## Styling
+
+Both standalone Next.js apps use **Tailwind CSS v4.3.4**, with the official `@tailwindcss/postcss` integration and local `postcss.config.mjs` files. Their global styles import `tailwindcss`, and Tailwind utility classes are the default styling approach. Keep brand tokens and shared visual conventions pending approved Auray branding; use custom CSS only when justified.
+
 ## Environments
 Only sanitized `.env.example` files belong in Git. Product integrations, Drizzle schema/migrations, R2 and deployment configuration belong to later, separately reviewed changes. Never automatically migrate production on API startup.
 
