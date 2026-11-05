@@ -1,43 +1,44 @@
-# Development standard
+# Development
 
-## Repository status
-This is a **documentation and policy bootstrap**. The Next.js/NestJS apps, root package manifest, pnpm lockfile, Drizzle migrations and deployment compose files are not yet generated. The first application-scaffold PR must add them and replace bootstrap-only CI validation with genuine app lint, typecheck, tests and builds. Do not report bootstrap CI as application verification.
+## Local prerequisites
+Node.js 24, pnpm 10.20.0. PostgreSQL is required when database functionality is added.
 
-## Environment target
-- Node.js 24 (use the appropriate 24.x release supported by your selected framework tooling).
-- pnpm workspaces; one shared root lockfile when applications are initialized.
-- Local PostgreSQL for database feature tests.
-- Three distinct application env configurations; commit only `.env.example` templates with no secrets.
+## Start applications
 
-## Planned commands after scaffold
 ```bash
-corepack enable
 pnpm install --frozen-lockfile
-pnpm --filter @auray/storefront dev
-pnpm --filter @auray/admin dev
-pnpm --filter @auray/api dev
-pnpm format:check
+pnpm dev
+pnpm --filter @auray/storefront dev  # http://localhost:3000
+pnpm --filter @auray/admin dev       # http://localhost:3001
+pnpm --filter @auray/api dev         # http://localhost:4000/health
+```
+
+`pnpm dev` runs all three independently deployable applications. All current routes are starter placeholders.
+
+## Verification
+
+```bash
+pnpm verify:workspace
 pnpm lint
 pnpm typecheck
 pnpm test
 pnpm build
 ```
-These are **planned**, not current runnable commands.
 
-## Git and pull requests
-1. Fetch latest `main`; create focused branch, preferably `feat/...`, `fix/...` or `chore/...`.
-2. Read root and scoped `AGENTS.md`, architecture/decisions and the task specification.
-3. Work in a separate worktree if multiple agents/tasks are active.
-4. Change only necessary files; update tests/docs, review migrations and security implications.
-5. Run and record actual checks; open PR against `main` with a clear summary/evidence.
-6. Bring branch up to date with latest `main` before merging; require green independent Workspace, Storefront, Admin and API checks once apps exist.
-7. Resolve review conversations; squash-merge. Never push directly to protected `main`, create `dev`, or auto-merge.
+Use `pnpm --filter @auray/<app> <command>` for a focused check. GitHub Actions runs independent checks with the committed frozen pnpm lockfile. The scaffold tests cover simple route/page output, not commerce or security features.
 
-## Database
-Generate SQL migrations through Drizzle Kit, commit reviewed SQL, apply migrations through an explicit release step, never automatic app startup. Confirm database target and backup before production change. Use Postgres transactions for inventory/payment state.
+## Styling
 
-## Engineering verification expectations
-- Financial/security/inventory changes: real DB integration tests, webhook fixtures, duplicates/out-of-order and race conditions.
-- Frontends: accessibility and checkout/owner flow tests.
-- Contract changes: update shared schemas and both consumers.
-- Keep provider credentials out of Git. Never substitute live payment tests for Bachs sandbox.
+Both standalone Next.js apps use **Tailwind CSS v4.3.4**, with the official `@tailwindcss/postcss` integration and local `postcss.config.mjs` files. Their global styles import `tailwindcss`, and Tailwind utility classes are the default styling approach. Keep brand tokens and shared visual conventions pending approved Auray branding; use custom CSS only when justified.
+
+## Environments
+Only sanitized `.env.example` files belong in Git. Product integrations, Drizzle schema/migrations, R2 and deployment configuration belong to later, separately reviewed changes. Never automatically migrate production on API startup.
+
+## Git workflow
+`main` is the only permanent branch. Create a short-lived branch and PR, keep it updated with `main`, run and report actual checks, resolve review threads and squash-merge. No `dev` branch and no Linear issues until explicitly requested.
+
+## Dependency policy
+Use Node 24 and pnpm 10.20.0. Update and commit the root `pnpm-lock.yaml` whenever a dependency changes. CI uses `pnpm install --frozen-lockfile`. Pin GitHub Actions to full reviewed commit SHAs.
+
+## Database testing when implemented
+Use real PostgreSQL for Drizzle migration/inventory/payment concurrency tests. Document the target DB, backup and rollback plan before production migrations. This scaffold does not claim those tests have been implemented.

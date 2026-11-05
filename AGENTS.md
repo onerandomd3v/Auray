@@ -13,7 +13,7 @@ Read `README.md`, `docs/architecture.md`, `docs/decisions.md`, `docs/development
 - No secrets, private client documents, customer data, or credentials in Git; no production access or migrations without explicit authorization.
 
 ## Required technical choices
-- Node.js 24, TypeScript, pnpm workspaces, standalone Next.js storefront and admin, NestJS modular-monolith REST API, PostgreSQL + Drizzle ORM.
+- Node.js 24, TypeScript, pnpm workspaces, standalone Next.js storefront and admin using Tailwind CSS v4, NestJS modular-monolith REST API, PostgreSQL + Drizzle ORM.
 - Cloudflare proxied DNS/WAF, R2 media, client-provided VPS, Docker Compose, Caddy; provider adapters for Bachs, SendByte, object storage.
 - Do not add Redis, queues, microservices, customer accounts, or shipping-provider integration by default.
 

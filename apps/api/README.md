@@ -1,3 +1,3 @@
 # Auray API
 
-Planned NestJS modular-monolith REST API. PostgreSQL + Drizzle, Bachs/SendByte/R2 adapters and commerce logic are not yet implemented.
+NestJS REST application scaffold. GET /health reports process readiness. Commerce modules, authentication, PostgreSQL/Drizzle, Bachs, SendByte and R2 are **not yet implemented**. See AGENTS.md.

@@ -1,3 +1,3 @@
-# Auray storefront
+# Auray Storefront
 
-Planned independent Next.js public storefront. No application scaffold is implemented yet; see `docs/development.md`.
+Independent Next.js app scaffold (port 3000). Product catalogue, guest checkout and Bachs integration are **not yet implemented**. See AGENTS.md.

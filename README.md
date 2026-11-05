@@ -1,20 +1,35 @@
 # Auray
 
-Fashion-commerce platform developed by CodedDevs Technology LTD for Auray.
-
-## Status
-Engineering foundation only. Product features are **not yet implemented**. Approved PRD/TDD remain the source of truth; this repository records the implementation standards and deployment boundaries.
+Fashion-commerce platform developed by CodedDevs Technology LTD.
 
 ## Applications
-- `apps/web/storefront` — standalone Next.js customer storefront.
-- `apps/web/admin` — standalone Next.js owner dashboard.
-- `apps/api` — NestJS REST API and all business logic.
-- `packages/` — only genuinely shared, non-secret contracts/configuration.
+- `apps/web/storefront` — independent Next.js public storefront (port 3000)
+- `apps/web/admin` — independent Next.js owner dashboard (port 3001)
+- `apps/api` — NestJS REST API (port 4000)
 
-See [architecture](docs/architecture.md), [development](docs/development.md), [engineering decisions](docs/decisions.md), and [repository rules](AGENTS.md).
+This PR provides **runnable application scaffolds**, not e-commerce functionality. No products, payments, emails, sessions, persistence or deployments have been implemented.
 
-## Branch strategy
-`main` is the **only permanent branch**. Work in short-lived feature branches and open PRs targeting `main`. Squash merge after checks and review. No `dev` or `develop` branch. No Linear issues are created as part of this bootstrap.
+## Local development
 
-## Bootstrap note
-Framework applications, package versions, lockfile, real app build/test workflows, and production deployment are not yet initialized. The bootstrap CI checks validate documentation and structure only; do not interpret them as proof that apps build or run.
+Node.js 24 and pnpm 10.20.0:
+
+```bash
+pnpm install --frozen-lockfile
+pnpm dev
+# individually:
+pnpm --filter @auray/storefront dev
+pnpm --filter @auray/admin dev
+pnpm --filter @auray/api dev
+```
+
+## Verification
+
+```bash
+pnpm verify:workspace
+pnpm lint
+pnpm typecheck
+pnpm test
+pnpm build
+```
+
+CI runs independently for Workspace, Storefront, Admin and API. See `docs/development.md`, `docs/architecture.md` and `AGENTS.md`. Only `main` is a permanent branch. No Linear issues during the bootstrap.

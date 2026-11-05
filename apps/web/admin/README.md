@@ -1,3 +1,3 @@
-# Auray admin
+# Auray Admin
 
-Planned independent Next.js single-owner admin app. No application scaffold is implemented yet; see `docs/security.md`.
+Independent Next.js app scaffold (port 3001). Admin authentication and management features are **not yet implemented**. All future admin changes require NestJS server-side authorization. See AGENTS.md.
