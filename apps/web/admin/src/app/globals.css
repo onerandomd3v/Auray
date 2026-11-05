@@ -1,0 +1,5 @@
+html { color-scheme: light; }
+body { margin: 0; min-height: 100vh; font-family: system-ui, sans-serif; color: #1b1b1b; background: white; }
+main { max-width: 56rem; margin: 5rem auto; padding: 0 1.5rem; }
+h1 { font-size: 2rem; }
+p { line-height: 1.6; }
