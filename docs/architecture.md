@@ -33,4 +33,4 @@ Delivery fees are quoted and paid **outside** the website. The product checkout 
 Use narrow internal interfaces for payment, transactional email and object storage. Keep provider-specific capability handling and signed event normalization in adapters. Do not make framework, ORM or database portable for its own sake.
 
 ## Decision and implementation status
-The architecture above is **approved**. The current repository implements application scaffolding only; catalogue, inventory, authentication, checkout, payments, emails, persistence and deployment are not yet built. Implementation state does not reopen these decisions. See [implementation readiness](implementation-readiness.md) and [product requirements](product-requirements.md).
+The architecture above is **approved**. The current repository implements application scaffolding only; catalogue, inventory, authentication, checkout, payments, emails, persistence and deployment are not yet built. Implementation state does not reopen these decisions. See the [README project status](../README.md#project-status) and [product requirements](product-requirements.md).
