@@ -2,14 +2,14 @@
 
 ## 1. Orders & Payment
 
-- Full payment is required before orders are processed or dispatched.
-- Orders are confirmed only after full payment.
+- Full payment for products is required before orders are processed or dispatched.
+- Orders are confirmed only after full product payment.
 
 ## 2. Delivery
 
 - We deliver within Nigeria and internationally.
 - Delivery fees and timelines depend on your location.
-- Delivery fees are paid when you are about to receive your order.
+- Delivery fees are quoted and paid separately, outside the website, when you are about to receive your order.
 
 ## 3. Returns & Exchanges
 
