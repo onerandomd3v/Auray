@@ -8,11 +8,11 @@
 | Runtime/data | Node.js 24; PostgreSQL + Drizzle; TypeScript |
 | Repository | Only `main` permanent; task-prefixed short-lived PR branches and squash merges; branch-prefix prohibitions and Linear authorization are governed exclusively by root [`AGENTS.md`](../AGENTS.md) |
 | Inventory | Size/colour variant stocks, transactional reservations, safe release/reconciliation |
-| Payments | Bachs checkout, verified signed webhooks, idempotency, audit ledger; product amount separate from shipping |
+| Payments & refunds | Bachs checkout and owner-initiated product-payment refunds via the admin/backend; verified provider states, idempotency, audit ledger; no customer refund portal |
 | Currencies | NGN is authoritative catalogue price; international options depend on verified Bachs capabilities |
-| Delivery | Owner arranges, quotes, collects and manages delivery fees outside website |
+| Delivery | Owner arranges, quotes and collects delivery fees entirely outside website; admin records quote/manual status only |
 | Checkout | Guest checkout; name, email, phone, address; mandatory published policy checkbox; no OTP/customer accounts |
-| Policies | Admin-managed versioned policies; record accepted version at checkout |
+| Policies | Owner drafts/previews/publishes from admin; immutable published content, current public version, and exact version/timestamp bound to each order; new versions do not alter old orders |
 | Guest privacy | Unpredictable private read-only order token; no access based only on order ID |
 | Admin | Single owner, host-only server-managed sessions, Argon2id; API authorization, CSRF/origin checks, rate limits |
 | Email | SendByte through EmailSender adapter; PostgreSQL transactional outbox, retries/dedupe, signed webhooks, delivery status |
@@ -26,7 +26,7 @@
 These checks **do not mean product decisions are pending approval**. They are evidence requirements during the assigned integration/deployment work. Agents must not guess provider-specific behaviour.
 1. Bachs sandbox: real checkout `expires_at`, payment method settlement windows, delayed/late webhook reconciliation; do not lock a 15-minute reservation without proof.
 2. Bachs sandbox: NGN-authoritative catalogue with international checkout/currency conversion options and merchant capability constraints.
-3. Bachs account/API: validate webhook types, signature verification, idempotency/retrieval semantics, refunds/disputes in test environment.
+3. Bachs account/API: validate webhook types, signature verification, idempotency/retrieval semantics, owner-initiated refund endpoints, merchant permissions, partial-refund constraints, refund status lookups/webhooks and dispute handling in test environment.
 4. SendByte sandbox and production: SDK behaviour, DNS verified sender, persistent idempotency handling, signed delivery webhooks.
 5. Host/domain delivery: inspect VPS capacity and firewall/Cloudflare origin setup before applying a production configuration.
 
