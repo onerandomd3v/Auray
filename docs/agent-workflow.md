@@ -49,7 +49,7 @@ Luna follows the root [`AGENTS.md`](../AGENTS.md) Git rules: assigned issue IDs 
 ## Start a Luna implementation session
 
 1. Start Codex in this trusted Auray project and select `gpt-6-luna` with High reasoning (the project config requests these defaults).
-2. State the assigned Linear issue ID and objective; ask Luna to read root `AGENTS.md`, this workflow, the relevant product/architecture/security docs, and applicable nested instructions before editing.
+2. Before proceeding, have the primary session read `.codex/agents/luna.toml` and follow its authorization rule: do not commit, push, or open a PR unless explicitly asked. Then state the assigned Linear issue ID and objective, and read root `AGENTS.md`, this workflow, the relevant product/architecture/security docs, and applicable nested instructions before editing.
 3. Ask Luna to implement the issue independently, run relevant checks, review its diff, and prepare—not merge—a focused PR.
 4. Ask Luna to delegate to `sol` only if an escalation criterion above is met, using the task packet format. Luna should return with the recommendation and continue.
 
