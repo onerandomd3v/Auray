@@ -39,5 +39,6 @@ Read `README.md`, `docs/product-requirements.md`, `docs/architecture.md`, `docs/
 - `docs/security.md`: authentication, checkout, webhook and data protection
 - `docs/operations.md`: Cloudflare, VPS, backups, migrations and recovery
 - `docs/agent-workflow.md`: optional specialist subagents, their authority and review
+- `.codex/agents/` and [`docs/agent-workflow.md`](docs/agent-workflow.md): Luna implementation and Sol technical-advisory workflow
 
 - `docs/testing.md`: testing and integration evidence requirements
