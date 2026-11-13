@@ -1,0 +1,5 @@
+ALTER TABLE "order_items" ADD CONSTRAINT "order_items_line_total_matches_quantity" CHECK ("order_items"."line_total_kobo" = "order_items"."unit_price_kobo" * "order_items"."quantity");--> statement-breakpoint
+ALTER TABLE "payment_events" ADD CONSTRAINT "payment_events_next_status_check" CHECK ("payment_events"."next_status" in ('created', 'pending', 'succeeded', 'failed', 'cancelled', 'disputed', 'underpaid', 'on_hold'));--> statement-breakpoint
+ALTER TABLE "payment_events" ADD CONSTRAINT "payment_events_previous_status_check" CHECK ("payment_events"."previous_status" is null or "payment_events"."previous_status" in ('created', 'pending', 'succeeded', 'failed', 'cancelled', 'disputed', 'underpaid', 'on_hold'));--> statement-breakpoint
+ALTER TABLE "provider_webhook_events" ADD CONSTRAINT "provider_webhook_events_processed_signature_check" CHECK ("provider_webhook_events"."processing_status" <> 'processed' or "provider_webhook_events"."signature_verified_at" is not null);--> statement-breakpoint
+ALTER TABLE "refund_events" ADD CONSTRAINT "refund_events_status_check" CHECK ("refund_events"."status" in ('requested', 'pending', 'succeeded', 'failed', 'cancelled'));
